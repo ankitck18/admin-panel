@@ -176,9 +176,10 @@ export default function Layout(props) {
         <List>
           {['Dashboard','Borrower','Applications', 'Loans'].map((text, index) => (
             <ListItem key={text} disablePadding
-            className={pathname.startsWith("/" + text.toLowerCase()) ? "text-sky-600":"text-slate-700"}>
+            className={pathname.startsWith("/" + text.toLowerCase()) ? "text-purple-700 bg-slate-100":"text-slate-700"}
+            onClick={() => {router.push("/" + text.toLowerCase())}}>
               <ListItemButton>
-                <ListItemIcon className={pathname.startsWith("/" + text.toLowerCase()) ? "text-sky-600":"text-slate-700"}>
+                <ListItemIcon className={pathname.startsWith("/" + text.toLowerCase()) ? "text-purple-700 bg-slate-100":"text-slate-700"}>
                 {text === 'Dashboard' ? (
                     <DashboardIcon />
                   ) : text === 'Applications' ? (
@@ -193,9 +194,9 @@ export default function Layout(props) {
               </ListItemButton>
             </ListItem>
           ))}
-          <ListItem disablePadding onClick={handleCollapse}>
+          <ListItem disablePadding onClick={handleCollapse} className={pathname.startsWith("/configurations") ? "text-purple-700 bg-slate-100":"text-slate-700"}>
               <ListItemButton>
-                <ListItemIcon>
+                <ListItemIcon className={pathname.startsWith("/configurations") ? "text-purple-700 bg-slate-100":"text-slate-700"}>
                  <SettingsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Admin Settings" />

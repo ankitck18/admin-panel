@@ -1,16 +1,13 @@
-export async function GET(req,res,next){
-    let users = [
-        {
-            id:1,
-            name:"praveen",
-            email :"praveen@trickuweb.com"
-        },
-        {
-            id:2,
-            name:"nitin",
-            email :"nitin@trickuweb.com"
-        }
-    ]
+import {query} from "../../../lib/db";
+
+export async function GET(request) {
+    const users = await query({
+        query: "SELECT * from users",
+        values: [],
+    });
+
     let data = JSON.stringify(users);
-    return new Response(data, {status:200});
+    return new Response(data, {
+        status: 200,
+    });
 }

@@ -4,7 +4,8 @@
 
 
 body{
-  background-color: #f9f9f9;
+  --tw-bg-opacity: 1;
+    background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1))
 }
 
 .gradient-custom {
