@@ -12,7 +12,7 @@ export async function query({ query, values = [] }) {
         await client.connect();
         const results = await client.query(query, values);
         console.log('---'+results)
-        return results;
+        return results.rows ;
       } catch (error) {
         throw Error(error.message);
         return { error };
