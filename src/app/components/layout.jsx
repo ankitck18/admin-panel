@@ -28,6 +28,8 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import SettingsIcon from '@mui/icons-material/Settings';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
+import { useRouter,usePathname } from 'next/navigation';
+
 
 const drawerWidth = 240;
 
@@ -86,10 +88,15 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft() {
+export default function Layout(props) {
+  const {window} = props;
+  const {children} = props;
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [isCollapse, setIsCollapse] = React.useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
 
   const handleCollapse = () => {
     setIsCollapse(!isCollapse);
@@ -168,9 +175,10 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {['Dashboard','Borrower','Applications', 'Loans'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+            <ListItem key={text} disablePadding
+            className={pathname.startsWith("/" + text.toLowerCase()) ? "text-sky-600":"text-slate-700"}>
               <ListItemButton>
-                <ListItemIcon>
+                <ListItemIcon className={pathname.startsWith("/" + text.toLowerCase()) ? "text-sky-600":"text-slate-700"}>
                 {text === 'Dashboard' ? (
                     <DashboardIcon />
                   ) : text === 'Applications' ? (
@@ -212,8 +220,10 @@ export default function PersistentDrawerLeft() {
         </Collapse>
       </Drawer>
       <Main open={open}>
-        <DrawerHeader />
-        <Typography sx={{ marginBottom: 2 }}>
+      <DrawerHeader />
+
+        {children}
+        {/* <Typography sx={{ marginBottom: 2 }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
           enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
@@ -239,8 +249,15 @@ export default function PersistentDrawerLeft() {
           tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        </Typography> */}
       </Main>
     </Box>
   );
+  Layout.propTypes = {
+    window: PropTypes.func,
+    children: PropTypes.array,
+  };
 }
+
+
+
