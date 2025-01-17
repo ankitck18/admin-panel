@@ -164,6 +164,7 @@ export default function Layout(props) {
             alt="LendNext logo"
             className='-ml-2 mr-2'
         />
+        
         <Typography variant="h6" noWrap component="div">
             LendNext
         </Typography>

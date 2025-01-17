@@ -24,7 +24,7 @@ const Borrower = () => {
           placeholder = "Search User"
           value ={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="mb-2 px-2 py-2 border-rounded bg-white"
+          className="mb-2 px-2 py-2 rounded border-rounded bg-white"
           />
         </div>
           <BorrowerList searchQuery={searchQuery}/>
