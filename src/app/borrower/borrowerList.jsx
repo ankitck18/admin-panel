@@ -21,21 +21,44 @@ import MenuButton from '@mui/joy/MenuButton';
 import Dropdown from '@mui/joy/Dropdown';
 
 
-export default function StickyHeadTable() {
+export default function borrowerList({searchQuery}) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [data,setData] = useState([]);
+  const [allData,setAllData] = useState([]);
+
   const [loading,setLoading] = useState(true);
+
+
+  const searchData = (searchQuery) => {
+    let filterData = data;
+    if(searchQuery && typeof searchQuery === "string"){
+      filterData = data.filter(usr => usr.first_name?.toLowerCase().includes(searchQuery.toLowerCase()));
+      setData(filterData);
+    }
+    else{
+      setData(allData);
+    }
+  }
+
+  useEffect(() => {
+    searchData(searchQuery);
+  }, [searchQuery])
+
 
   useEffect(() => {
     getData();
   }, [])
+
+
+  
 
   const getData = () => {
     axios.get('/api/borrower')
     .then(response => {
       console.log('Data',response);
       setData(response.data);
+      setAllData(response.data);
       setLoading(false);
     }).catch(err =>{
       console.log('Error',err);
