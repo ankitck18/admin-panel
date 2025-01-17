@@ -13,9 +13,10 @@ const Borrower = () => {
 
   return (
     <>
-     <Layout>
+    <div className='bg-slate-100'>
+    <Layout>
       <>
-        <h2 className='font-bold mb-4'>
+      <h2 className='font-bold mb-4'>
           Borrowers
         </h2>
         <div>
@@ -23,12 +24,14 @@ const Borrower = () => {
           placeholder = "Search User"
           value ={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="mb-2 px-2 py-2 border-rounded"
-          style={{ backgroundColor: "#f1f5f9" }} />
+          className="mb-2 px-2 py-2 border-rounded bg-white"
+          />
         </div>
           <BorrowerList searchQuery={searchQuery}/>
       </>
      </Layout>
+    </div>
+     
     </>
     
   )
