@@ -164,10 +164,9 @@ export default function Layout(props) {
             alt="LendNext logo"
             className='-ml-2 mr-2'
         />
-        
-        <Typography variant="h6" noWrap component="div">
-            LendNext
-        </Typography>
+        <div className='text-2xl font-bold'>
+          LendNext
+        </div>
         </Toolbar>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
