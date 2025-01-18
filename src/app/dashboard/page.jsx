@@ -22,14 +22,14 @@ export default function home (){
                 <div className='pt-5'>
                 <div className='grid grid-cols-4 gap-6'>
                   <div className='col-span-1'>
-                    <div className='mx-auto bg-sky-50 rounded-xl shadow-lg'>
+                    <div className='mx-auto card rounded-xl shadow-lg'>
                       <div className='flex justify-between'>
                         <div className='ml-5 mt-5'>
                           <AccountBalanceIcon fontSize='large'/>
                         </div>
                       </div>
                       <div className='pl-7 pt-5 pb-5'>
-                        <div className='text-blue-600 font-semibold'>
+                        <div className='text-fuchsia-50 font-semibold'>
                             Total Applications
                         </div>
                         <div className='text-3xl font-semibold'>
@@ -39,14 +39,14 @@ export default function home (){
                     </div>
                   </div>
                   <div className='col-span-1'>
-                    <div className='mx-auto bg-sky-50 rounded-xl shadow-lg'>
+                    <div className='mx-auto card rounded-xl shadow-lg'>
                       <div className='flex justify-between'>
                         <div className='ml-5 mt-5'>
                           <RequestQuoteRoundedIcon fontSize='large'/>
                         </div>
                       </div>
                       <div className='pl-7 pt-5 pb-5'>
-                        <div className='text-blue-600 font-semibold'>
+                        <div className='text-fuchsia-50 font-semibold'>
                             Total Loans
                         </div>
                         <div className='text-3xl font-semibold'>
@@ -56,14 +56,14 @@ export default function home (){
                     </div>
                   </div>
                   <div className='col-span-1'>
-                    <div className='mx-auto bg-sky-50 rounded-xl shadow-lg'>
+                    <div className='mx-auto card rounded-xl shadow-lg'>
                       <div className='flex justify-between'>
                         <div className='ml-5 mt-5'>
                           <MonetizationOnIcon fontSize='large'/>
                         </div>
                       </div>
                       <div className='pl-7 pt-5 pb-5'>
-                        <div className='text-blue-600 font-semibold'>
+                        <div className=' text-fuchsia-50 font-semibold'>
                             Disbursed Amount
                         </div>
                         <div className='text-3xl font-semibold'>

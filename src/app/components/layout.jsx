@@ -162,7 +162,7 @@ export default function Layout(props) {
             anchorEl={anchorEl}
             open={isMenuOpen}
             onClose={handleMenuClose}
-            sx={{ mt: "45px" }}
+            sx={{ mt: "5px" }}
           >
             <MenuItem onClick={() => { router.push("/profile"); handleMenuClose(); }}>
               Profile
