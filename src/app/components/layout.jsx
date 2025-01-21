@@ -1,10 +1,7 @@
 "use client";
 import * as React from "react";
 import PropTypes from "prop-types";
-import {
-  styled,
-  useTheme,
-} from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -31,7 +28,9 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
+import ChatIcon from "@mui/icons-material/Chat";
 import { useRouter, usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const drawerWidth = 240;
 
@@ -85,7 +84,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
 }));
@@ -96,7 +94,7 @@ export default function Layout(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [isCollapse, setIsCollapse] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null); // Menu anchor
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -152,7 +150,6 @@ export default function Layout(props) {
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Dashboard
           </Typography>
-          {/* User Menu */}
           <Tooltip title="Account">
             <IconButton onClick={handleMenuOpen} color="inherit">
               <Avatar alt="User" />
@@ -272,6 +269,34 @@ export default function Layout(props) {
       <Main open={open}>
         <DrawerHeader />
         {children}
+        {/* Chat Button */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          style={{
+            position: "fixed",
+            bottom: "50px",
+            right: "30px",
+            borderRadius: "50%",
+            width: "60px",
+            height: "60px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+            cursor: "pointer",
+          }}
+          onClick={() => console.log("Chat button clicked")}
+        >
+          <Image
+              src="/chat-bot.png"
+              width={40}
+              height={40}
+              alt="AI Chatbot"
+            />
+        </motion.div>
       </Main>
     </Box>
   );
